@@ -7,13 +7,13 @@ class PassGen:
         # Layout
         sg.theme('DefaultNoMoreNagging')
         layout = [
-            [sg.Text('Site/Software', size=(10, 1)),
+            [sg.Text('Site/Software', size=(11, 1)),
              sg.Input(key='site', size=(20, 1))],
-            [sg.Text('E-mail/Usuário', size=(10, 1)),
+            [sg.Text('E-mail/Usuário', size=(11, 1)),
              sg.Input(key='usuario', size=(20, 1))],
             [sg.Text('Quantidade de caracteres'), sg.Combo(values=list(
-                range(30)), key='total_chars', default_value=1, size=(3, 1))],
-            [sg.Output(size=(32, 5))],
+                range(30)), key='total_chars', default_value=6, size=(3, 1))],
+            [sg.Output(size=(50, 10))],
             [sg.Button('Gerar Senha')]
         ]
         # Declarar janela
@@ -26,7 +26,7 @@ class PassGen:
                 break
             if evento == 'Gerar Senha':
                 nova_senha = self.gerar_senha(valores)
-                print(nova_senha)
+                print('Nova senha gerada: ',nova_senha)
                 self.salvar_senha(nova_senha, valores)
 
     def gerar_senha(self, valores):
@@ -38,9 +38,9 @@ class PassGen:
     def salvar_senha(self, nova_senha, valores):
         with open('senhas.txt', 'a', newline='') as arquivo:
             arquivo.write(
-                f"site: {valores['site']}, usuario: {valores['usuario']}, nova senha: {nova_senha} \n")
+                f"site: {valores['site']}, usuario: {valores['usuario']}, nova senha: {nova_senha}\n")
 
-        print('Arquivo salvo')
+        print('Arquivo "senhas.txt" salvo no caminho:', os.getcwd(),'\n')
 
 
 gen = PassGen()
