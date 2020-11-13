@@ -16,8 +16,8 @@ class PassGen:
             [sg.Multiline(os.getcwd() + '\senhas.txt', disabled=True, size=(51,1))],
             [sg.Text('Nova senha gerada: ', size=(51,1))],
             [sg.Multiline('', disabled=True, size=(50,1), key='out')],
-            [sg.Button('Gerar Senha')],
-            [sg.Button('Limpar Tela')]
+            [sg.Button('Gerar Senha', size=(10,1))],
+            [sg.Button('Limpar Tela', size=(10,1))]
         ]
         # Janela
         self.janela = sg.Window('Password Generator', layout)
