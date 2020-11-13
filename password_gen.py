@@ -11,12 +11,15 @@ class PassGen:
              sg.Input(key='site', size=(20, 1))],
             [sg.Text('E-mail/Usuário', size=(11, 1)),
              sg.Input(key='usuario', size=(20, 1))],
-            [sg.Text('Quantidade de caracteres'), sg.Combo(values=list(
-                range(30)), key='total_chars', default_value=6, size=(3, 1))],
-            [sg.Output(size=(50, 10))],
-            [sg.Button('Gerar Senha')]
+            [sg.Text('Quantidade de caracteres'), sg.Combo(values=list(range(30)), key='total_chars', default_value=6, size=(3, 1))],
+            [sg.Text('As senhas geradas estão sendo salvas no arquivo:',key='caminho_arquivo', size=(51,1))], 
+            [sg.Multiline(os.getcwd() + '\senhas.txt', disabled=True, size=(51,1))],
+            [sg.Text('Nova senha gerada: ', size=(51,1))],
+            [sg.Multiline('', disabled=True, size=(50,1), key='out')],
+            [sg.Button('Gerar Senha')],
+            [sg.Button('Limpar Tela')]
         ]
-        # Declarar janela
+        # Janela
         self.janela = sg.Window('Password Generator', layout)
 
     def Iniciar(self):
@@ -26,8 +29,10 @@ class PassGen:
                 break
             if evento == 'Gerar Senha':
                 nova_senha = self.gerar_senha(valores)
-                print('Nova senha gerada: ',nova_senha)
+                self.janela.find_element('out').Update(nova_senha)
                 self.salvar_senha(nova_senha, valores)
+            if evento == 'Limpar Tela':
+                self.limpar_output()
 
     def gerar_senha(self, valores):
         char_list = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%¨&*'
@@ -40,8 +45,9 @@ class PassGen:
             arquivo.write(
                 f"site: {valores['site']}, usuario: {valores['usuario']}, nova senha: {nova_senha}\n")
 
-        print('Arquivo "senhas.txt" salvo no caminho:', os.getcwd(),'\n')
 
+    def limpar_output(self):
+        self.janela.FindElement('out').Update('')
 
 gen = PassGen()
 gen.Iniciar()
