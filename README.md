@@ -11,7 +11,7 @@ Projeto feito com Python, através do tutorial do <a href="https://www.youtube.c
 
 ### :heavy_check_mark: Melhorias do código inicial fornecido pelo tutorial:
 
-- [x] Campo com o caminho da pasta onde o arquivo com as senhas está sendo salvo;
+- [x] Adicionado à tela um campo com o caminho da pasta onde o arquivo com as senhas está sendo salvo;
 - [x] Alterado o tema do layout;
 - [x] Ajustado o tamanho e espaçamento entre os itens;
 - [x] Adicionado um output único (visão mais limpa da senha gerada);
