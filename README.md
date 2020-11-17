@@ -11,11 +11,11 @@ Projeto feito com Python, através do tutorial do <a href="https://www.youtube.c
 
 ### :heavy_check_mark: Melhorias do código inicial fornecido pelo tutorial:
 
-- [x] Adicionado à tela um campo com o caminho da pasta onde o arquivo com as senhas está sendo salvo;
+- [x] Adicionado à tela o caminho da pasta onde o arquivo com as senhas está sendo salvo;
 - [x] Alterado o tema do layout;
-- [x] Ajustado o tamanho e espaçamento entre os itens;
+- [x] Ajustado o tamanho e espaçamento entre os itens no layout;
 - [x] Adicionado um output único (visão mais limpa da senha gerada);
-- [x] Adicionado o botão "Limpar Tela", no qual o outuput da senha é zerado;
+- [x] Adicionado o botão (e a função) "Limpar Tela", no qual o outuput da senha é zerado;
 - [x] Caminho da pasta do arquivo de senhas é selecionável e copiável;
 - [x] Retirada a opção de digitação no output da senha gerada;
 - [x] No arquivo criado pelo Python, foi adicionada quebra de linha deixando os itens mais legíveis.
